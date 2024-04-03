@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# This script produces a low-quality blend of the audio files.
+
+ffmpeg -y -i input/voice.mp3 -i input/music.wav -filter_complex amix=inputs=2:normalize=0 output/low-quality-blend.wav

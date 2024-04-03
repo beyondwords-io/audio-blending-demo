@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# This script produces a high-quality blend of the audio files by first upsampling
+# the voice.mp3 file to match the sample rate and number of channels of music.wav.
+
+ffmpeg -y -i input/voice.mp3 -ar 44100 -ac 2 tmp/voice-upsampled.wav
+ffmpeg -y -i tmp/voice-upsampled.wav -i input/music.wav -filter_complex amix=inputs=2:normalize=0 output/high-quality-blend.wav
